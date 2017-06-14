@@ -1,16 +1,33 @@
 (function(exports) {
   'use strict';
   var board = function() {
+    var turn = 0;
+    var squares = {
+      'x0y0': square(),
+      'x0y1': square(),
+      'x0y2': square(),
+      'x1y0': square(),
+      'x1y1': square(),
+      'x1y2': square(),
+      'x2y0': square(),
+      'x2y1': square(),
+      'x2y2': square(),
+    };
+    var updatedSquares = {};
     return {
-      x0y0: undefined,
-      x0y1: undefined,
-      x0y2: undefined,
-      x1y0: undefined,
-      x1y1: undefined,
-      x1y2: undefined,
-      x2y0: undefined,
-      x2y1: undefined,
-      x2y2: undefined,
+      markSquare: function(square) {
+        if (turn % 2 === 0) {
+          squares[square].setMark('X');
+          updatedSquares[square] = 'X';
+        } else {
+          squares[square].setMark('0');
+          updatedSquares[square] = 'Y';
+        }
+        turn += 1;
+      },
+      getUpdatedSquares: function() {
+        return updatedSquares;
+      }
     };
   };
   exports.board = board;
