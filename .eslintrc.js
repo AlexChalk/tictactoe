@@ -9,6 +9,7 @@ module.exports = {
     "chai": false,
     "sinon": false,
     "board": false,
+    "square": false,
   },
   "rules": {
     "indent": [
