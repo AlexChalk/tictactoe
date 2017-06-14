@@ -21,6 +21,13 @@ describe('board', function() {
     });
   });
 
+  it('does not report result if game is incomplete', function() {
+    myBoard.markSquare('x0y0');
+    expect(myBoard.winner()).to.equal('n/a');
+  });
+
+
+
   xit('has mocking abilities', function() {
     sinon.stub(console, 'log');
     console.log('hey');

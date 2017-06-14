@@ -14,10 +14,16 @@
       x2y2: square(),
     };
     var updatedSquares = {};
+    var gameisOver = {
+      name: 'Error',
+      message: 'Game is over'
+    };
 
     return {
       markSquare: function(square) {
-        if (turn % 2 === 0) {
+        if (this.winner() !== 'n/a') {
+          throw gameisOver;
+        } else if (turn % 2 === 0) {
           squares[square].setMark('X');
         } else {
           squares[square].setMark('0');
@@ -27,7 +33,11 @@
       },
       getUpdatedSquares: function() {
         return updatedSquares;
+      },
+      winner: function() {
+        return 'n/a';
       }
+
     };
   };
   exports.board = board;
