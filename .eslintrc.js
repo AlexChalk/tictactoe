@@ -10,7 +10,8 @@ module.exports = {
     "sinon": false,
     "board": false,
     "square": false,
-    "game": false,
+    "GAME": false,
+    "gameStatus": false,
   },
   "rules": {
     "indent": [

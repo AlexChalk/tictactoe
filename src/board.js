@@ -1,7 +1,6 @@
 (function(exports) {
   'use strict';
   var board = function() {
-    var turn = 0;
     var squares = {
       x0y0: square(),
       x0y1: square(),
@@ -14,25 +13,17 @@
       x2y2: square(),
     };
     var updatedSquares = {};
-    var gameisOver = {
-      name: 'Error',
-      message: 'Game is over'
-    };
 
     return {
-      markSquare: function(square) {
-        if (this.winner() !== 'n/a') {
-          throw gameisOver;
-        } else if (turn % 2 === 0) {
-          squares[square].setMark('X');
-        } else {
-          squares[square].setMark('0');
-        }
+      markSquare: function(square, mark) {
+        squares[square].setMark(mark);
         updatedSquares[square] = squares[square].getMark();
-        turn += 1;
       },
       getUpdatedSquares: function() {
         return updatedSquares;
+      },
+      getSquares: function() {
+        return squares;
       },
       winner: function() {
         return 'n/a';
