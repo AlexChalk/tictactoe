@@ -1,9 +1,16 @@
 var expect = chai.expect;
 
 describe('square', function() {
+  var square0;
+  beforeEach(function() {
+    square0 = square();
+  });
   it('can be marked', function() {
-    var square0 = square();
     square0.setMark('X');
     expect(square0.getMark()).to.equal('X');
+  });
+  it('cannot be marked more than once', function() {
+    square0.setMark('X');
+    expect(square0.setMark.bind(square0, '0')).to.throw(/cannot be marked more than once/);
   });
 });
