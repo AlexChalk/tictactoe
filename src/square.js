@@ -8,7 +8,14 @@
       },
       setMark: function(marking) {
         if (mark === '') {
-          mark = marking;
+          if (marking === 'X' || marking === '0') {
+            mark = marking;
+          } else {
+            throw {
+              name: 'Error',
+              message: 'A square can only be marked with an "X" or "0"'
+            };
+          }
         } else {
           throw {
             name: 'Error',
