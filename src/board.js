@@ -28,9 +28,6 @@
       getSquares: function() {
         return squares;
       },
-      winner: function() {
-        return 'n/a';
-      }
 
     };
   };
