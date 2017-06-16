@@ -6,9 +6,15 @@ describe('board', function() {
     myBoard = board();
   });
 
-  it('marks squares', function() {
+  it('tracks updated squares', function() {
     myBoard.markSquare('x0y0', 'X');
     expect(myBoard.getUpdatedSquares()).to.eql({ x0y0: 'X' });
+  });
+
+  it('clears record of updated squares', function() {
+    myBoard.markSquare('x0y0', 'X');
+    myBoard.clearUpdatedSquares();
+    expect(myBoard.getUpdatedSquares()).to.eql({});
   });
 
   it('gets squares', function() {

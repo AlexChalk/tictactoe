@@ -26,7 +26,7 @@ describe('play', function() {
     expect(firstGame.reportUpdatedSquares()).to.eql({x0y0: 'X', x0y1: '0'});
   });
 
-  it('clearUpdatedSquares clears updated squares object', function() {
+  it('clearUpdatedSquares clears updated squares record', function() {
     firstGame.play('x0y0', 'X');
     firstGame.play('x0y1', '0');
     firstGame.clearUpdatedSquares();
