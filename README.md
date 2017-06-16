@@ -12,7 +12,7 @@ The following assumes you have Node installed:
 
 This game has no UI at present, but you can play with the logic in your browser's terminal: `open index.html`. Here is an example:
 
-![screenshot-from-browser-terminal](http://i.imgur.com/rprgKOn.png)
+![screenshot-from-browser-terminal](http://i.imgur.com/zAGUMir.png)
 
 ## Design Notes
 
