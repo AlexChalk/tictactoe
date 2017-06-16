@@ -22,6 +22,9 @@
       getUpdatedSquares: function() {
         return updatedSquares;
       },
+      clearUpdatedSquares: function() {
+        updatedSquares = {};
+      },
       getSquares: function() {
         return squares;
       },

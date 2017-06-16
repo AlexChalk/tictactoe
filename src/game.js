@@ -2,14 +2,11 @@
   var GAME = function() {
     var turn = 0;
     var gameBoard = board();
-    var result = gameStatus(gameBoard);
-    var gameisOver = {
-      name: 'Error',
-      message: 'Game is over'
+    var changeTurn = function() {
+      turn += 1;
     };
-    var playingOutOfTurn = {
-      name: 'Error',
-      message: 'It is the other player\'s turn'
+    var result = function() {
+      return gameStatus(gameBoard);
     };
     var markSquare = function(square, symbol) {
       if ((turn % 2 === 0 && symbol === '0') || (turn % 2 !== 0 && symbol === 'X')) {
@@ -18,27 +15,35 @@
         gameBoard.markSquare(square, symbol);
       }
     };
+    var gameisOver = {
+      name: 'Error',
+      message: 'This game is over'
+    };
+    var playingOutOfTurn = {
+      name: 'Error',
+      message: 'It is the other player\'s turn'
+    };
 
     return {
-      changeTurn: function() {
-        turn += 1;
-      },
-
       play: function(square, symbol) {
-        // if (result !== 'n/a') {
-        //   throw gameisOver;
-        // } else {
+        if (result() !== 'n/a') {
+          throw gameisOver;
+        } else {
           markSquare(square, symbol);
-          this.changeTurn();
-        // }
+          changeTurn();
+        }
       },
 
       reportUpdatedSquares: function() {
-        return gameBoard.getUpdatedSquares;
+        return gameBoard.getUpdatedSquares();
+      },
+
+      clearUpdatedSquares: function() {
+        return gameBoard.clearUpdatedSquares();
       },
 
       checkGameStatus: function() {
-        return result;
+        return result();
       }
     };
   };
