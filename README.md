@@ -19,7 +19,7 @@ This game has no UI at present, but you can play with the logic in your browser'
 The brief specified to only design the business logic, but I have thought about how my logic could be integrated with a user interface. I've provided the following API for a UI to use:
 
 * Mark a square: `game.play(square, mark)`
-* Get list of all updated squares (e.g. for updating a graphical display): `game.reportUpdatedSquares();`
+* Get list of all updated squares (could be used for updating a graphical display): `game.reportUpdatedSquares();`
 * Clear updated squares list (for once squares have been updated on display): `game.clearUpdatedSquares();`
 * Get game status (win/lose/draw/etc.): `game.checkGameStatus();`
 
