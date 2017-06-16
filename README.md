@@ -8,7 +8,32 @@ The following assumes you have Node installed:
 1. Clone the repository: `git clone git@github.com:adc17/tictactoe.git`.
 2. `npm install`.
 
+## Usage
+
+This game has no UI at present, but you can play with the logic in your browser's terminal: `open index.html`. Here is an example:
+
+![screenshot-from-browser-terminal](http://i.imgur.com/rprgKOn.png)
+
 ## Design Notes
+
+The brief specified to only design the business logic, but I have thought about how my logic could be integrated with a user interface. I've provided the following API for a UI to use:
+
+* Mark a square: `game.play(square, mark)`
+* Get list of all updated squares (e.g. for updating a graphical display): `game.reportUpdatedSquares();`
+* Clear updated squares list (for once squares have been updated on display): `game.clearUpdatedSquares();`
+* Get game status (win/lose/draw/etc.): `game.checkGameStatus();`
+
+This could be implemented roughly as follows:
+```
+document.getElementsByClassName("square").addEventListener('click', function(){
+  game.play(this.id, mark);
+  updateDisplay(game.reportUpdatedSquares());
+  game.clearUpdatedSquares();
+  if (game.checkGameStatus() !== 'n/a') {
+    displayResult();
+  }
+});
+```
 
 ## Tests
 
