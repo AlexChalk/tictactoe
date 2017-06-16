@@ -10,7 +10,7 @@ The following assumes you have Node installed:
 
 ## Usage
 
-This game has no UI at present, but you can play with the logic in your browser's terminal: `open index.html`. Here is an example:
+This game has no UI at present, but you can play with the logic in your browser's terminal: `open index.html`. 
 
 ![screenshot-from-browser-terminal](http://i.imgur.com/zAGUMir.png)
 
